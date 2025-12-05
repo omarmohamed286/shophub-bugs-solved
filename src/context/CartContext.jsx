@@ -13,6 +13,8 @@ export const useCart = () => {
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
+  console.log("CART",cart)
+
   // Load cart from localStorage on mount
   useEffect(() => {
     const savedCart = localStorage.getItem("cart");
@@ -31,7 +33,8 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeFromCart = (productId) => {
-    setCart(cart.filter((item) => item.productId !== productId));
+    // id not productId
+    setCart(cart.filter((item) => item.id !== productId));
   };
 
   const updateQuantity = (productId, quantity) => {
