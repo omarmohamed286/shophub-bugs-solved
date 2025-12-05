@@ -41,7 +41,8 @@ const ProductCard = ({ product }) => {
 
           <button
             onClick={handleAddToCart}
-            className="w-full btn-primary relative -z-10"
+            // just add higher z-index
+            className="w-full btn-primary relative z-10"
           >
             <span className="flex items-center justify-center gap-2">
               <svg
