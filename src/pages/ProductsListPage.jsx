@@ -24,8 +24,9 @@ const ProductsListPage = () => {
     }
 
     if (selectedCategory) {
+      // === instead of !==
       result = result.filter(
-        (product) => product.category.id !== selectedCategory
+        (product) => product.category.id === selectedCategory
       );
     }
 
