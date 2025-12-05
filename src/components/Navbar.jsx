@@ -6,7 +6,11 @@ const Navbar = () => {
   const { cart } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const cartCount = cart.length;
+  // count is the sum of all quantities
+  const cartCount = cart.reduce((acc, curr) => {
+    console.log(acc.quantity);
+    return acc + curr.quantity;
+  }, 0);
 
   return (
     <nav className="sticky top-0 z-50 glass-effect border-b border-gray-200 shadow-lg">

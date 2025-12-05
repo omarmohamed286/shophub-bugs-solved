@@ -38,6 +38,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const updateQuantity = (productId, quantity) => {
+    console.log(cart.map((item) => (item.id === productId ? { ...item, quantity } : item)))
     setCart(
       cart.map((item) => (item.id === productId ? { ...item, quantity } : item))
     );
