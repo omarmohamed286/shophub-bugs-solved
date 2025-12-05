@@ -18,7 +18,8 @@ export const fetchProducts = async () => {
 };
 
 export const fetchProductById = async (id) => {
-  const response = await api.get(`/product/${id}`);
+  // looking at the api docs, the endpoint is acutally /products not /product
+  const response = await api.get(`/products/${id}`);
   return response.data;
 };
 
