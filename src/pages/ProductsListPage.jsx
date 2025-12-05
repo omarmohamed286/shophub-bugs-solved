@@ -18,9 +18,11 @@ const ProductsListPage = () => {
     let result = products;
 
     if (searchTerm) {
-      result = result.filter((product) =>
-        product.category.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+      // title not category name
+      result = result.filter((product) => {
+        console.log(product);
+        return product.title.toLowerCase().includes(searchTerm.toLowerCase());
+      });
     }
 
     if (selectedCategory) {
@@ -73,7 +75,7 @@ const ProductsListPage = () => {
           <div className="product-grid grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 animate-fade-in">
             {filteredProducts.map((product) => (
               // the console err was because absence of key prop
-              <ProductCard product={product} key={product.id}/>
+              <ProductCard product={product} key={product.id} />
             ))}
           </div>
         ) : (
