@@ -12,21 +12,37 @@ export const fetchProducts = async () => {
     const response = await api.get("/products");
     return response.data;
   } catch (error) {
-    console.error("Error fetching products:", error);
-    throw error;
+    // throw proper error
+    const msg = `Error fetching products: ${error}`;
+    console.error(msg);
+    throw Error(msg);
   }
 };
 
 export const fetchProductById = async (id) => {
   // looking at the api docs, the endpoint is acutally /products not /product
-  const response = await api.get(`/products/${id}`);
-  return response.data;
+  // adding try and catch
+  try {
+    const response = await api.get(`/products/${id}`);
+    return response.data;
+  } catch (error) {
+    const msg = `Error fetching a product: ${error}`;
+    console.error(msg);
+    throw Error(msg);
+  }
 };
 
 // Fetch all categories
 export const fetchCategories = async () => {
-  const response = await api.get("/categories");
-  return response.data;
+  // adding try and catch
+  try {
+    const response = await api.get("/categories");
+    return response.data;
+  } catch (error) {
+    const msg = `Error fetching categories: ${error}`;
+    console.error(msg);
+    throw Error(msg);
+  }
 };
 
 // Filter products by category
@@ -35,8 +51,9 @@ export const fetchProductsByCategory = async (categoryId) => {
     const response = await api.get(`/products/?categoryId=${categoryId}`);
     return response.data;
   } catch (error) {
-    console.error("Error fetching products by category:", error);
-    throw error;
+    const msg = `Error fetching products by category: ${error}`;
+    console.error(msg);
+    throw Error(msg);
   }
 };
 
