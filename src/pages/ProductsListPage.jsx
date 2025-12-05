@@ -71,7 +71,8 @@ const ProductsListPage = () => {
         {filteredProducts.length > 0 ? (
           <div className="product-grid grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 animate-fade-in">
             {filteredProducts.map((product) => (
-              <ProductCard product={product} />
+              // the console err was because absence of key prop
+              <ProductCard product={product} key={product.id}/>
             ))}
           </div>
         ) : (
